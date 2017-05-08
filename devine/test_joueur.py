@@ -74,3 +74,17 @@ class TestJoueur_jouer(unittest.TestCase):
 
         self.assertEqual(joueur_mock2.jouer(), '3: 70 trop haut2: 50 trop bas1: 55 trop bas')
 
+    def test_jouer_4(self):
+
+       # Nombre |  deviner
+       alea = mock.Mock()
+       alea.nombre.return_value = 50
+
+       # Nombres fournis
+       imp = mock.Mock()
+       imp.imprime_reponse = mock.MagicMock(side_effect=identique)
+       imp.entree.side_effect = ['11']
+
+       joueur_mock2 = devine.joueur.Joueur(alea, imp, 1, "joueur Mock")
+
+       self.assertEqual(joueur_mock2.jouer(), 'Should FAIL!')
