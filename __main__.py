@@ -17,7 +17,7 @@ def load_tests(loader, tests, pattern):
 if __name__ == '__main__':
 
     if len(sys.argv) > 1 and sys.argv[1] == 'test':
-        testsuite = unittest.TestLoader().discover('devine/devine')
+        testsuite = unittest.TestLoader().discover('devine-clone/devine')
         unittest.TextTestRunner(verbosity=2).run(testsuite)
         sys.exit(0)
 
